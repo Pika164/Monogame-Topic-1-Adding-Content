@@ -1,16 +1,18 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using System.Threading.Channels;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
 namespace Monogame_Topic_1_Adding_Content
 {
+    
     public class Game1 : Game
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
-        Texture2D dinoTexture;
-
+        Texture2D foxTexture, catTexture, livingroomTexture, snakeTexture, forestTexture, dogTexture;
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -36,7 +38,20 @@ namespace Monogame_Topic_1_Adding_Content
 
             // TODO: use this.Content to load your game content here
 
-            dinoTexture = Content.Load<Texture2D>("dino");
+            forestTexture = Content.Load<Texture2D>("forest");
+
+            livingroomTexture = Content.Load<Texture2D>("livingroom");
+
+            foxTexture = Content.Load<Texture2D>("fox");
+            
+            catTexture = Content.Load<Texture2D>("cat");
+
+            snakeTexture = Content.Load<Texture2D>("snake");
+
+            dogTexture = Content.Load<Texture2D>("dog");
+
+            Random generator = new Random();
+
         }
 
         protected override void Update(GameTime gameTime)
@@ -56,8 +71,18 @@ namespace Monogame_Topic_1_Adding_Content
             // TODO: Add your drawing code here
             _spriteBatch.Begin();
 
-            _spriteBatch.Draw(dinoTexture, new Vector2(490, 0), Color.White);
+            _spriteBatch.Draw(forestTexture, new Vector2(0,0), Color.White);
             
+            _spriteBatch.Draw(livingroomTexture, new Vector2(0, 0), Color.White);
+
+            _spriteBatch.Draw(foxTexture, new Vector2(375, 175), Color.White);
+
+            _spriteBatch.Draw(catTexture, new Vector2(185, 200), Color.White);
+
+            _spriteBatch.Draw(snakeTexture, new Vector2(25,15), Color.White);
+
+            _spriteBatch.Draw(dogTexture, new Vector2(550,0), Color.White);
+
             _spriteBatch.End();
 
             base.Draw(gameTime);
